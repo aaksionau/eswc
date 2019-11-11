@@ -1,0 +1,17 @@
+*.pyc
+__pycache__
+*.log
+settings.json
+**/media
+/.vscode
+.env
+/static
+*/htmlcov
+
+/echb/.coverage
+/echb/.coveragerc
+
+**/flake-report
+Pipfile.lock
+package-lock.json
+/node_modules
