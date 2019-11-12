@@ -1,6 +1,7 @@
 from django.shortcuts import reverse
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from django.utils import timezone
 from .models import BlogPost
 
 
@@ -34,3 +35,8 @@ class BlogPostPage(TestCase):
         response = self.client.get(
             reverse('blog:detail', kwargs={'slug': 'test-title-1'}))
         self.assertContains(response, 'Test')
+
+    def test_post_contains_published_date(self):
+        response = self.client.get(
+            reverse('blog:detail', kwargs={'slug': 'test-title-1'}))
+        self.assertContains(response, timezone.now().strftime('%b %d %Y'))

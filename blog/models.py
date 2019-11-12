@@ -17,6 +17,7 @@ class BlogPost(models.Model):
     cover_image = models.FileField(
         upload_to='blogposts', blank=True, null=True)
     published = models.BooleanField(default=False)
+    published_date = models.DateTimeField(blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -38,6 +39,8 @@ class BlogPost(models.Model):
         self.title = self.title.title()
         self.modified = timezone.now()
         self.slug = slugify(self.title)
+        if self.published and not self.published_date:
+            self.published_date = timezone.now()
         return super(BlogPost, self).save(*args, **kwargs)
 
     def __str__(self):

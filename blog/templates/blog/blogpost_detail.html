@@ -1,4 +1,5 @@
 {% block main %}
 <h1>{{post.title}}</h1>
+<p>{{post.published_date|date:"M d Y"}}</p>
 <div>{{post.description}}</div>
 {% endblock main %}
