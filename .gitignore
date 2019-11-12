@@ -15,3 +15,4 @@ settings.json
 Pipfile.lock
 package-lock.json
 /node_modules
+credentials.json

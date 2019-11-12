@@ -16,6 +16,8 @@ django = "==2.2.7"
 python-decouple = "==3.1"
 psycopg2 = "==2.8.4"
 django-summernote = "*"
+gspread = "*"
+oauth2client = "*"
 
 [requires]
 python_version = "3.7"
