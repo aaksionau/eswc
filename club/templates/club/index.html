@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% for coach in coaches %}
+<div class="coach">
+{{coach.name}}
+</div>
+{% endfor %}
+
+{% endblock main %}

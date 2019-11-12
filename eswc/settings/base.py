@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     'blog',
     'django_summernote',
+    'club',
 ]
 
 MIDDLEWARE = [
