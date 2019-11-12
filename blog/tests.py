@@ -40,3 +40,8 @@ class BlogPostPage(TestCase):
         response = self.client.get(
             reverse('blog:detail', kwargs={'slug': 'test-title-1'}))
         self.assertContains(response, timezone.now().strftime('%b %d %Y'))
+
+    def test_list_of_post_contains_pagination(self):
+        response = self.client.get(reverse('blog:list'))
+
+        self.assertContains(response, 'Page 1 out of 2')

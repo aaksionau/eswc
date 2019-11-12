@@ -5,4 +5,5 @@
 <h1><a href="{{post.get_absolute_url}}" title="{{post.title}}">{{post.title}}</a></h1>
 {{post.description|truncatechars_html:200}}
 {% endfor %}
+{% include "blog/pagination.html" %}
 {% endblock main %}
