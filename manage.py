@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 import os
 import sys
+from decouple import config
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "eswc.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                          f"eswc.settings.{config('SETTINGS')}")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
