@@ -1,7 +1,8 @@
 
 from django.shortcuts import render
-from .models import Coach, GoogleSchedule
+from .models import Coach, GoogleSchedule, Schedule
 
+import requests
 from decouple import config
 
 
