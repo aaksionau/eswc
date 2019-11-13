@@ -5,7 +5,6 @@ settings.json
 **/media
 /.vscode
 .env
-/static
 */htmlcov
 
 /echb/.coverage
