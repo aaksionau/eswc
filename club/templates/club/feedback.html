@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block main %}
+        {% include "_messages.html" with messages=messages %}
+        <form action="" method="post" >
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Send</form>
+        </form>
+{% endblock main %}

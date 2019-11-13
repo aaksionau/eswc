@@ -10,8 +10,8 @@ logger = logging.getLogger(__name__)
 
 class Coach(models.Model):
     name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=12,
-                             validators=[RegexValidator(regex='^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$')])
+    phone = models.CharField(max_length=14,
+                             validators=[RegexValidator(regex='^\([0-9]{3}\)[0-9]{3}(-[0-9]{2}){2}|$')], help_text="Enter phone in the following format (111)111-11-11")
     email = models.EmailField()
 
     avatar = models.FileField(upload_to='coaches/', blank=True, null=True)
@@ -52,6 +52,24 @@ class Schedule(models.Model):
 
     def __str__(self):
         return f'{self.date}'
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=14,
+                             validators=[RegexValidator(regex='^\([0-9]{3}\)[0-9]{3}(-[0-9]{2}){2}|$')], help_text="Enter phone in the following format (111)111-1111")
+    text = models.TextField()
+
+    created = models.DateTimeField(auto_now_add=True)
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        ordering = ['-created']
 
 
 class GoogleSchedule:

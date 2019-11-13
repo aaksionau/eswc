@@ -1,0 +1,13 @@
+{% if messages %}
+    <div class="ui message">
+        <i class="close icon"></i>
+        <div class="header">
+            Here are some messages after your request
+        </div>
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="item {{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

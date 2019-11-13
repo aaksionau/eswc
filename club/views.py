@@ -1,9 +1,9 @@
-
 from django.shortcuts import render
-from .models import Coach, GoogleSchedule, Schedule
+from django.contrib import messages
+from django.views.generic.edit import FormView
 
-import requests
-from decouple import config
+from .models import Coach, GoogleSchedule, Schedule, Feedback
+from .forms import FeedbackForm
 
 
 def index(request):
@@ -17,3 +17,16 @@ def import_schedule(request):
                                     'https://www.googleapis.com/auth/spreadsheets.readonly')
     google_service.getdata()
     return render(request, 'club/import_results.html')
+
+
+class FeedbackView(FormView):
+    template_name = 'club/feedback.html'
+    form_class = FeedbackForm
+    success_url = '/contacts/'
+
+    def form_valid(self, form):
+        form.send_email()
+        form.save()
+        messages.success(
+            self.request, 'You successfully sent a message. We will reply soon. Thank you.')
+        return super().form_valid(form)
