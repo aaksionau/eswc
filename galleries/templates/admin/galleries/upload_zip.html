@@ -1,0 +1,61 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls admin_static %}
+
+{# Admin styling code largely taken from http://www.dmertl.com/blog/?p=116 #}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}" />
+{% endblock %}
+
+{% block bodyclass %}{{ opts.app_label }}-{{ opts.object_name.lower }} change-form{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ app_label|capfirst|escape }}</a>
+    &rsaquo; {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">
+        {{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+    &rsaquo; Загрузка .zip файла
+</div>
+{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block content %}
+
+<h1>Upload .zip file with photos</h1>
+<p>Photos can be added:</p>
+<ul>
+    <li>To existing gallery.</li>
+        <ul>
+            <li><strong>Field: Gallery is required</strong></li>
+        </ul>
+    <li>To a new gallery.</li>
+        <ul>
+            <li><strong>Fields: Title, Date and Author are required</strong></li>
+        </ul>
+</ul>
+<p><strong>Zip file size should be less then {{max_zip_size}}MB</strong></p>
+
+{% if form.errors %}
+<p class="errornote">
+    Please correct following errors
+</p>
+{{ form.non_field_errors }}
+{% endif %}
+
+<form action="{% url 'admin:upload_zip' %}" method="post" id="zip_upload_form" {% if form.is_multipart %}enctype="multipart/form-data"
+    {% endif %}>
+    {% csrf_token %}
+    <div>
+        {% for fieldset in adminform %}
+        {% include "admin/includes/fieldset.html" %}
+        {% endfor %}
+    </div>
+    <div class="submit-row">
+        <input type="submit" value="Upload" class="default" />
+    </div>
+</form>
+
+{% endblock %}

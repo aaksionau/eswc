@@ -18,6 +18,7 @@ psycopg2 = "==2.8.4"
 django-summernote = "*"
 gspread = "*"
 oauth2client = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"

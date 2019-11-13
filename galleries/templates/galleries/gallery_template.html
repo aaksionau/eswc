@@ -1,0 +1,13 @@
+{% load static %}
+<div class="gallery">
+    <div class="gallery__photo">
+        <a class="gallery__link" href='{{gallery.get_absolute_url}}' alt='{{gallery.title}}'>
+            <div class="gallery__image" style="background-image:url('/media/{{gallery.main_image }}')"></div>
+        </a>
+    </div>
+    <div class="gallery__meta">
+        <div class="gallery__meta-item">{{gallery.date|date:'d E Y'}}</div>
+        <h3 class="gallery__title"><a class="gallery__more" href='{{gallery.get_absolute_url}}' alt='{{gallery.title}}'>{{gallery.title}}</a></h3>
+        <div class="gallery__meta-item">{{gallery.author.last_name}} {{gallery.author.first_name}}</div>
+    </div>
+</div>

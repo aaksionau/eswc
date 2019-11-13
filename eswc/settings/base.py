@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'blog',
     'django_summernote',
     'club',
+    'galleries',
 ]
 
 MIDDLEWARE = [
@@ -115,10 +116,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+MEDIA_URL = '/media/'
 
 GOOGLE_API_CLIENT_ID = config('GOOGLE_API_CLIENT_ID')
 GOOGLE_API_CLIENT_SECRET = config('GOOGLE_API_CLIENT_SECRET')
 
 
 FEEDBACK_RECIPIENTS = ['alexei.aksenov@gmail.com']
+MAX_ZIP_FILE_SIZE = 50  # MB
