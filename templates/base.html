@@ -8,13 +8,24 @@
   <title>Homepage - Semantic</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/bulma.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}">
-
+{% block styles %}
+{% endblock styles %}
 </head>
 <body>
+    <div class="logo">
+        <img src="{% static 'img/logo.png' %}" title="East Side Wrestling Club" width="150" />
+    </div>
     {% include "menu.html" %}
     {% block main %}
 
     {% endblock main %}
+    <footer>
+        <div class="container">
+        Photo for design taken by Ishan @seefromthesky on Unsplash <br/>
+        Developed by @paloni<br/>
+        2012-{% now 'Y'%}
+        </div>
+    </footer>
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

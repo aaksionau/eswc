@@ -1,0 +1,22 @@
+<div class="container">
+        <h1 class="title has-text-centered">Practice times, dates & price</h1>
+        <p class="subtitle is-6 has-text-centered">
+        <span class="has-text-weight-medium"> Ages 4 through 14</span>: Tuesdays & Thursdays from 6:15 - 7:30pm <br/>at the <a href="https://goo.gl/maps/UuYEYDcDaxwyGhsN6">Johnson High School</a> wrestling room.</p>
+        <p class="subtitle is-6 has-text-centered"><span class="has-text-weight-medium">There is a $30 cost </span> to participate in the winter season, and will include all practices, coaching at tournaments, and a club shirt. <br/>Fees can be discounted or waived for families with financial difficulties.</p>
+</div>
+<section class="schedule">
+    <div class="container">
+        <table class="table is-hoverable schedule_list">
+        <tbody>
+        {% for item in schedule_list %}
+            <tr>
+                <td>{{item.date|date:'l, F t Y'}}</td>
+                <td><span class="tag is-white">No practice!</span></td>
+                <td>{{item.description}}</td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+</section>

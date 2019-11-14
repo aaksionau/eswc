@@ -11,12 +11,16 @@ from .author import Author
 from .audit import Audit
 
 
+def gallery_upload_path(instance, filename):
+    return f'galleries/{instance.slug}/{filename}'
+
+
 class Gallery(Audit):
     title = models.CharField(max_length=200)
     date = models.DateField()
     slug = models.SlugField(unique=True)
     description = models.TextField(null=True, blank=True)
-    main_image = models.FileField(upload_to='galleries')
+    main_image = models.FileField(upload_to=gallery_upload_path)
     tags = models.ManyToManyField(Tag, related_name='galleries')
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
 
@@ -32,10 +36,11 @@ class Gallery(Audit):
         return reverse('gallery-detail', kwargs={'slug': self.slug})
 
     def clean(self):
-        slug = self.get_slug(self.title)
-        if Gallery.objects.filter(slug=slug).exists():
-            raise ValidationError(
-                f'Gallery with {slug} exist, please change slug or title')
+        if not self.id:
+            slug = slugify(self.title)
+            if Gallery.objects.filter(slug=slug).exists():
+                raise ValidationError(
+                    f'Gallery with {slug} exist, please change slug or title')
 
     def save(self, *args, **kwargs):
         if not self.id:

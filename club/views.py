@@ -3,12 +3,20 @@ from django.contrib import messages
 from django.views.generic.edit import FormView
 
 from .models import Coach, GoogleSchedule, Schedule, Feedback
+from galleries.models import Gallery
 from .forms import FeedbackForm
+
+from datetime import datetime
 
 
 def index(request):
     context = {}
     context['coaches'] = Coach.objects.all()
+    context['schedule_list'] = Schedule.objects.filter(
+        date__gte=datetime.now()).filter(type='n').order_by('date')[:10]
+    context['tournaments'] = Schedule.objects.filter(
+        date__gte=datetime.now()).filter(type='t').order_by('date')[:3]
+    context['galleries'] = Gallery.objects.all()[:5]
     return render(request, 'club/index.html', context)
 
 

@@ -1,6 +1,111 @@
+.logo{
+  position: absolute;
+  left: 15%;
+  background-color: white;
+  z-index: 100;
+  padding: 0 7px;
+  border-radius: 5px;
+}
 .page__main-image{
   background-image: url('/static/img/main_image.jpg');
-  position: absolute;
   height: 500px;
   width: 100%;
+}
+.coaches_list{
+  display: flex;
+  flex-flow: row wrap;
+}
+.coaches_list p{
+  margin-bottom: 0;
+}
+.coaches, .schedule, .about{
+  margin:50px 0;
+  padding:20px 0;
+}
+.coach{
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 215px;
+  background-size: cover;
+}
+.card {
+  width:250px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.schedule{
+  background-image: url('/static/img/schedule.jpg');
+}
+.table {
+  color: #fff;
+  background-color: darkseagreen;
+}
+.table.is-hoverable tbody tr:not(.is-selected):hover{
+  background-color: #67b194;
+}
+.schedule_list {
+  margin-left: auto;
+  margin-right: auto;
+}
+.content{
+  text-align: center;
+  position: relative;
+  top: 220px;
+  background-color: #f8fbf8;
+  border-radius: 10px;
+  padding: 24px;
+  opacity: 0.8;
+  font-family: 'Courgette', cursive;
+  width: 60%;
+  margin: auto;
+  color: #0b0706;
+}
+.content h1{
+  color: #12294b;
+}
+section h1, .container h1{
+  font-family: 'Courgette', cursive;
+}
+
+.tournaments_list{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.tournaments_list .card{
+  margin-left:20px;
+}
+.tournament{
+  height:150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.galleries {
+  background-color: #69ada2;
+  padding: 40px;
+}
+.galleries_list{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.gallery{
+  height:250px;
+  max-height: 300px;
+  width: 300px;
+  max-width: 450px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5px;
+}
+.gallery .details {
+  background-color: #fff;
+  opacity: 0.8;
+  padding: 11px;
+}
+footer{
+  background-color: #87a3a7;
+  padding:15px;
 }

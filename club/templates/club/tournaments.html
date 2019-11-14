@@ -1,0 +1,20 @@
+<section class="coaches">
+    <div class="container">
+        <h1 class="title has-text-centered">Coming tournaments</h1>
+        <div class="tournaments_list">
+            {% for item in tournaments %}
+                <div class="card">
+                    <div class="card-image tournament" style="background-image: url(/media/{{item.cover_image}})">
+                    </div>
+                    <div class="card-content">
+                        <div class="media-content">
+                            <p class="title is-5">{{item.date|date:'l, F t Y'}}</p>
+                            <p class="subtitle is-6">{{item.description}}</p>
+                            <p class="subtitle is-6"><a target="_blank" class="button is-small is-primary" href="{{item.link}}">More</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

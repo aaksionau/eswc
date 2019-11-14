@@ -1,11 +1,26 @@
 {% extends "base.html" %}
 
+{% block styles %}
+    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+{% endblock styles %}
+
+
 {% block main %}
 <div class="page__main-image">
-</div>
-    {% for coach in coaches %}
-        <div class="coach">
-            {{coach.name}}
+    <div class="container">
+        <div class="content">
+            <h1 class="is-size-3">Introduce yourself to the great sport of wrestling.</h1>
+            <p class="subtitle is-5">Not sure if you'll like wrestling? </p>
+            <a class="button is-warning" href="{% url 'club:contacts' %}">
+            Try it for a week for free!
+            </a>
         </div>
-    {% endfor %}
+    </div>
+</div>
+{% include "club/about.html" %}
+{% include "club/schedule.html" with schedule_list=schedule_list %}
+{% include "club/tournaments.html" with tournaments=tournaments %}
+{% include "club/galleries.html" with galleries=galleries %}
+{% include "club/coaches.html" with coaches=coaches %}
+
 {% endblock main %}

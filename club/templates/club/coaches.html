@@ -1,0 +1,20 @@
+<section class="coaches">
+    <div class="container">
+        <h1 class="title has-text-centered">Our team</h1>
+        <div class="coaches_list">
+            {% for coach in coaches %}
+                <div class="card">
+                    <div class="card-image coach" style="background-image: url(/media/{{coach.avatar}})">
+                    </div>
+                    <div class="card-content">
+                        <div class="media-content">
+                            <p class="title is-5">{{coach.name}}</p>
+                            <p class="subtitle is-7">{{coach.email}} <br/>{{coach.phone}}</p>
+                            <p class="subtitle is-6">{{coach.title}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

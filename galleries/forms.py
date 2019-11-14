@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 
 all_galleries_folder = os.path.join(settings.BASE_DIR, 'media',
                                     'galleries')
-thumbnail_size = 255, 127
+thumbnail_size = 450, 300
 web_size = 1023, 800
 
 
@@ -42,7 +42,7 @@ class UploadZipForm(forms.Form):
     gallery = forms.ModelChoiceField(Gallery.objects.all(
     ), required=False, help_text='Select gallery to add photos or leave it empty if you are about to create new one')
     date = forms.DateField(widget=forms.SelectDateWidget,
-                           help_text='Date of photos', required=False, initial=datetime.now())
+                           help_text='Date of photos', required=False, initial=datetime.now)
     author = forms.ModelChoiceField(Author.objects.all(
     ), required=False, help_text="Select author of the photos")
     tags = forms.ModelMultipleChoiceField(Tag.objects.all(), required=False)
@@ -121,10 +121,10 @@ class UploadZipForm(forms.Form):
                     original_image.thumbnail(web_size)
                     original_image.save(image_full_path, "JPEG")
 
-                    relative_image_path = os.path.join(
-                        gallery.slug, f'{new_filename}.jpg')
-                    relative_thumbnail_path = os.path.join(
-                        gallery.slug, f'{new_filename}.thumbnail.jpg')
+                    relative_image_path = os.path.join('galleries',
+                                                       gallery.slug, f'{new_filename}.jpg').replace('\\', '/')
+                    relative_thumbnail_path = os.path.join('galleries',
+                                                           gallery.slug, f'{new_filename}.thumbnail.jpg').replace('\\', '/')
                     image = Image(title=filename, gallery=gallery,
                                   image=relative_image_path, thumbnail=relative_thumbnail_path)
                     image.save()
