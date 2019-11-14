@@ -1,14 +1,32 @@
-    <a class="active item">Home</a>
-    <a class="item">About us</a>
-    <a class="item">Photo galleries</a>
-    <a class="item">Blog</a>
-    <a class="item">Contacts</a>
+{% load static %}
+<div class="container">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+        </div>
 
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu">
-    <a class="active item">Home</a>
-    <a class="item">About us</a>
-    <a class="item">Photo galleries</a>
-    <a class="item">Blog</a>
-    <a class="item">Contacts</a>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+            <a class="navbar-item">
+                Home
+            </a>
+            <a class="navbar-item">
+                About us
+            </a>
+            <a class="navbar-item">
+                Galleries
+            </a>
+            <a class="navbar-item">
+                Blog
+            </a>
+            <a class="navbar-item">
+                Contacts
+            </a>
+            </div>
+        </div>
+    </nav>
 </div>
