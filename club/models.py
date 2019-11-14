@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 class Coach(models.Model):
+    title = models.CharField(max_length=100, blank=True, null=True)
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=14,
                              validators=[RegexValidator(regex='^\([0-9]{3}\)[0-9]{3}(-[0-9]{2}){2}|$')], help_text="Enter phone in the following format (111)111-11-11")
