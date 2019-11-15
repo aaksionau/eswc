@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block styles %}
     <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
 {% endblock styles %}
@@ -8,6 +8,9 @@
 {% block main %}
 <div class="page__main-image">
     <div class="container">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" title="East Side Wrestling Club" width="150" />
+        </div>
         <div class="content">
             <h1 class="is-size-3">Introduce yourself to the great sport of wrestling.</h1>
             <p class="subtitle is-5">Not sure if you'll like wrestling? </p>
@@ -24,3 +27,17 @@
 {% include "club/coaches.html" with coaches=coaches %}
 
 {% endblock main %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+    $(".gallery" ).hover(function() {
+        $(this.children[0]).toggle( "slow", function() {
+        });
+    });
+    $(".gallery" ).click(function() {
+         window.location.href = this.children[0].children[0].children[0].href;
+    });
+});
+</script>
+{% endblock scripts %}

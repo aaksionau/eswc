@@ -1,19 +1,28 @@
 .logo{
-  position: absolute;
-  left: 15%;
   background-color: white;
   z-index: 100;
   padding: 0 7px;
   border-radius: 5px;
+  display: inline-block;
+  margin-top: -45px;
+  position: absolute;
 }
 .page__main-image{
   background-image: url('/static/img/main_image.jpg');
   height: 500px;
   width: 100%;
+  position: absolute;
+}
+.secondary_page__main-image{
+  background-image: url('/static/img/secondary_image.jpg');
+  height: 244px;
+  width: 100%;
+  position: absolute;
 }
 .coaches_list{
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 .coaches_list p{
   margin-bottom: 0;
@@ -22,19 +31,26 @@
   margin:50px 0;
   padding:20px 0;
 }
+.about {
+  margin-top: 500px;
+}
 .coach{
   background-repeat: no-repeat;
   background-position: center;
-  height: 215px;
+  height: 150px;
   background-size: cover;
 }
 .card {
-  width:250px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  width: 220px;
+  margin-right: 29px;
+  margin-bottom: 20px;
+}
+.coaches_list .card-content{
+  padding: 1rem;
 }
 .schedule{
   background-image: url('/static/img/schedule.jpg');
+  background-attachment:fixed;
 }
 .table {
   color: #fff;
@@ -82,7 +98,8 @@ section h1, .container h1{
   background-size: cover;
 }
 .galleries {
-  background-color: #69ada2;
+  background-image:url('/static/img/photo_background.jpg');
+  background-attachment:fixed;
   padding: 40px;
 }
 .galleries_list{
@@ -99,13 +116,24 @@ section h1, .container h1{
   background-repeat: no-repeat;
   background-size: cover;
   margin: 5px;
+  cursor: pointer;
 }
 .gallery .details {
   background-color: #fff;
-  opacity: 0.8;
+  opacity: 0.9;
   padding: 11px;
+  display: none;
 }
 footer{
-  background-color: #87a3a7;
+  background-color: #21373a;
   padding:15px;
+  color: #aebabb;
+}
+.page{
+  padding:30px 0;
+  margin-top: 244px;
+}
+.navbar-link.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
+  background-color: #e2847a !important;
+  color: #fbfcfd;
 }

@@ -56,6 +56,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'club.context.add_settings',
             ],
         },
     },
@@ -120,7 +122,7 @@ MEDIA_URL = '/media/'
 
 GOOGLE_API_CLIENT_ID = config('GOOGLE_API_CLIENT_ID')
 GOOGLE_API_CLIENT_SECRET = config('GOOGLE_API_CLIENT_SECRET')
-
+GOOGLE_ANALYTICS = config('GOOGLE_ANALYTICS')
 
 FEEDBACK_RECIPIENTS = ['alexei.aksenov@gmail.com']
 MAX_ZIP_FILE_SIZE = 50  # MB

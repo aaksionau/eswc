@@ -1,13 +1,13 @@
 {% if messages %}
-    <div class="ui message">
-        <i class="close icon"></i>
-        <div class="header">
-            Here are some messages after your request
+    <article class="message is-success">
+        <div class="message-header">
+            <p>Success</p>
+            <button class="delete" aria-label="delete"></button>
         </div>
         <ul class="messages">
             {% for message in messages %}
-                <li{% if message.tags %} class="item {{ message.tags }}"{% endif %}>{{ message }}</li>
+                <li {% if message.tags %} class="item {{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
-    </div>
+    </article>
 {% endif %}

@@ -1,9 +1,57 @@
-{% extends "base.html" %}
+{% extends "secondary_base.html" %}
 {% block main %}
-        {% include "_messages.html" with messages=messages %}
-        <form action="" method="post" >
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Send</form>
-        </form>
+{{ block.super }}
+    <div class="container page">
+        <div class="columns">
+            <div class="column">
+                <h2 class="title">Contacts</h2>
+                <h4 class="subtitle is-6">If you have any questions about our club, please leave them here:</h4>
+                {% include "_messages.html" with messages=messages %}
+                {% if form.errors %}
+                    <article class="message is-danger">
+                        <div class="message-header">
+                            <p>Please correct those errors:</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <ul class="list">
+                            {% for field, errors in form.errors.items %}
+                                <li>Field [{{ field }}]: {{ errors|join:", "}}</li>
+                            {% endfor %}
+                        </ul>
+                    </article>
+                {% endif %}
+                <form action="" method="post" >
+                    {% csrf_token %}
+                    <div class="field">
+                        <label class="label" for="id_name">Name:</label> 
+                        <div class="control is-small">
+                            <input class="input is-small" type="text" name="name" maxlength="50" required id="id_name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="id_email">Email:</label> 
+                        <div class="control is-small">
+                            <input class="input is-small" type="email" name="email" maxlength="254" required id="id_email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="id_phone">Phone:</label> 
+                        <div class="control is-small">
+                            <input class="input is-small" type="text" name="phone" maxlength="14" required id="id_phone"> 
+                        </div>
+                        <p class="help">Enter phone in the following format (111)111-1111</p>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="id_text">Text:</label> 
+                        <div class="control is-small">
+                            <textarea class="textarea" name="text" cols="40" rows="10" required id="id_text">
+                            </textarea>
+                        </div>
+                    </div>
+                    <button class="button" type="submit">Send</form>
+                </form>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
 {% endblock main %}
