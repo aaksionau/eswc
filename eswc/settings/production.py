@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ['eswc.paloni.webfactional.com',
 STATIC_URL = "/static/"
 STATIC_ROOT = '/home/paloni/webapps/eswc/eswc/all_static_files/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "all_static_files")
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
