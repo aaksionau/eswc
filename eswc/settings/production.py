@@ -7,11 +7,12 @@ ALLOWED_HOSTS = ['eswc.paloni.webfactional.com',
                  'www.eastsidewrestling.org', 'eastsidewrestling.org']
 
 STATIC_URL = "/static/"
-STATIC_ROOT = '/home/paloni/webapps/eswc/eswc/all_static_files/'
+STATIC_ROOT = '/home/paloni/webapps/eswc_static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "all_static_files")
+    os.path.join(BASE_DIR, "static")
 ]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"
+MEDIA_ROOT = '/home/paloni/webapps/eswc_media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
