@@ -128,6 +128,7 @@ footer{
   background-color: #21373a;
   padding:15px;
   color: #aebabb;
+  margin-top: 210px;
 }
 .page{
   padding:30px 0;
@@ -136,4 +137,25 @@ footer{
 .navbar-link.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
   background-color: #e2847a !important;
   color: #fbfcfd;
+}
+
+.gallery-photo__list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 30px;
+}
+.gallery-photo__image {
+  width: 180px;
+  height: 111px;
+  background-position: center;
+}
+.gallery-photo__item {
+  -ms-flex-preferred-size: 160px;
+  flex-basis: 160px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  margin: 0 5px 5px 0;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s,-webkit-transform .2s;
 }

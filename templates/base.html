@@ -5,7 +5,10 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Homepage - Semantic</title>
+  <title>
+    {% block pagetitle %}
+    {% endblock pagetitle %} - East Side Wrestling Club, St. Paul, Minnesota
+  </title>
   {% include "seo.html" with page=page %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/bulma.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}">
@@ -38,6 +41,14 @@
             });
             $(".delete").click(function() {
                 $('.message').hide();
+            });
+
+            $(".gallery" ).hover(function() {
+                $(this.children[0]).toggle( "slow", function() {
+                });
+            });
+            $(".gallery" ).click(function() {
+                window.location.href = this.children[0].children[0].children[0].href;
             });
         });
     </script>

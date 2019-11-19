@@ -24,6 +24,7 @@ class ExtraContext(object):
 class GalleriesListView(ExtraContext, ListView):
     model = Gallery
     paginate_by = 12
+    context_object_name = 'galleries'
 
     def get_queryset(self):
         return self.model.objects.select_related('author')
@@ -60,5 +61,5 @@ class GalleryDetailView(DetailView):
         data = super().get_context_data(**kwargs)
         data['latest_galleries'] = Gallery.objects.order_by('-date')[:3]
         data['images'] = Image.objects.filter(
-            gallery_id=Gallery.objects.get(slug=self.kwargs['slug']).id)
+            gallery__slug=self.kwargs['slug'])
         return data

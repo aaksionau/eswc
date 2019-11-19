@@ -1,25 +1,17 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "secondary_base.html" %}
 {% block pagetitle %}
-  {{ current_page.title }} - {{ block.super }} 
-
-{% endblock pagetitle %} 
-
- {% block content %}
-    <header>
-        <h2 class="content__title">{{current_page.title}}</h2>
-        <p class="content__text">{{current_page.description}}</p>
-    </header>
-    <ul class="gallery__list">
-        {% for gallery in gallery_list %}
-            <li class="gallery__list-item">
-                {% include 'galleries/gallery_template.html' with gallery=gallery %}
-            </li>
-        {% endfor %}
-    </ul>
-    {% include "pagination.html" %}
-{% endblock content %}
+Galleries 
+{% endblock pagetitle %}
+ {% block main %}
+    {{ block.super }}
+    <div class="page">
+        <div class="container">
+            {% include "galleries/galleries.html" with galleries=galleries %}
+            {% include "pagination.html" %}
+        </div>
+    </div>
+{% endblock main %}
 
 {% block rightside %}
     {% include 'galleries/right_side.html' %}
- {% endblock rightside %}
+{% endblock rightside %}

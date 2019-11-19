@@ -35,10 +35,9 @@ class BlogPost(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.created = timezone.now()
+            self.slug = slugify(self.title)
         self.title = self.title.title()
-        self.modified = timezone.now()
-        self.slug = slugify(self.title)
+
         if self.published and not self.published_date:
             self.published_date = timezone.now()
         return super(BlogPost, self).save(*args, **kwargs)

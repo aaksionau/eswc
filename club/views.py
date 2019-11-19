@@ -20,6 +20,10 @@ def index(request):
     return render(request, 'club/index.html', context)
 
 
+def donate(request):
+    return render(request, 'club/donate.html')
+
+
 def import_schedule(request):
     google_service = GoogleSchedule('https://docs.google.com/spreadsheets/d/1HM9NH4OlTZKtuuNC-CZWWQ_zxPXcaAPFD56hSDRyTNk/edit#gid=0',
                                     'https://www.googleapis.com/auth/spreadsheets.readonly')

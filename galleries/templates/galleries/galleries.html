@@ -1,0 +1,10 @@
+<div class="galleries_list">
+{% for gallery in galleries %}
+    <div class="gallery" style="background-image:url('/media/{{gallery.main_image}}')">
+        <div class="details">
+            <h3><a class="has-text-dark" href="{% url 'galleries:detail' gallery.slug %}" title="{{gallery.title}}"> {{gallery.title}}</a></h3>
+            <p class="subtitle is-7">{{gallery.date|date:"F d, Y"}}<br/>{{gallery.author}}</p>
+        </div>
+    </div>
+{% endfor %}
+</div>

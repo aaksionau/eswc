@@ -1,5 +1,19 @@
+{% extends "secondary_base.html" %}
+{% block pagetitle %}
+{{post.title}} - Blog 
+{% endblock pagetitle %}
 {% block main %}
-<h1>{{post.title}}</h1>
-<p>{{post.published_date|date:"M d Y"}}</p>
-<div>{{post.description}}</div>
+    {{ block.super }}
+    <div class="page">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <h1 class="title">{{post.title}}</h1>
+                    <p class="subtitle is-7">{{post.published_date|date:"M d Y"}} | {{post.author}}</p>
+                    <div>{{post.description|safe}}</div>
+                </div>
+                <div class="column is-one-fifth"></div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}

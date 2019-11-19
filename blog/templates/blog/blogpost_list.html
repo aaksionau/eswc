@@ -1,9 +1,36 @@
-{% extends "base.html" %}
-
+{% extends "secondary_base.html" %}
+{% block pagetitle %}
+Blog
+{% endblock pagetitle %}
 {% block main %}
-{% for post in blogposts %}
-<h1><a href="{{post.get_absolute_url}}" title="{{post.title}}">{{post.title}}</a></h1>
-{{post.description|truncatechars_html:200}}
-{% endfor %}
-{% include "blog/pagination.html" %}
+    {{ block.super }}
+    <div class="page">
+        <div class="container">
+            <h1 class="title">Our blog</h1>
+            <div class="columns">
+                <div class="column is-four-fifths">
+                {% for post in blogposts %}
+                    <h3>
+                        <a class="subtitle has-text-grey" href="{{post.get_absolute_url}}" title="{{post.title}}">{{post.title}}</a>
+                    </h3>
+                    <span class="subtitle is-7">{{post.published_date|date:"M d Y"}} | {{post.author}}</span>
+                    <div class="columns">
+                        {% if post.cover_image %}
+                            <div class="column is-one-fifth">
+                                <img src="/media/{{post.cover_image}}" alt="{{post.title}}">
+                            </div>
+                        {% endif %}
+                        <div class="column {% if post.cover_image %}is-four-fifths {% endif %}">
+                            {{post.description|striptags|safe|truncatechars_html:400}}
+                            <br/>
+                            <a class="button is-small is-info is-light" href="{{post.get_absolute_url}}" title="{{post.title}}">More...</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% include "blog/pagination.html" %}
+                </div>
+                <div class="column is-one-fifth"></div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}

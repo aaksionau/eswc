@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block pagetitle %}
+Home 
+{% endblock pagetitle %}
+
 {% block styles %}
     <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
 {% endblock styles %}
@@ -23,21 +28,9 @@
 {% include "club/about.html" %}
 {% include "club/schedule.html" with schedule_list=schedule_list %}
 {% include "club/tournaments.html" with tournaments=tournaments %}
-{% include "club/galleries.html" with galleries=galleries %}
+<section class="galleries">
+    {% include "galleries/galleries.html" with galleries=galleries %}
+</section>
 {% include "club/coaches.html" with coaches=coaches %}
 
 {% endblock main %}
-
-{% block scripts %}
-<script>
-$(document).ready(function(){
-    $(".gallery" ).hover(function() {
-        $(this.children[0]).toggle( "slow", function() {
-        });
-    });
-    $(".gallery" ).click(function() {
-         window.location.href = this.children[0].children[0].children[0].href;
-    });
-});
-</script>
-{% endblock scripts %}

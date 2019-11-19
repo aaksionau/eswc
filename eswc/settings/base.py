@@ -126,3 +126,8 @@ GOOGLE_ANALYTICS = config('GOOGLE_ANALYTICS')
 
 FEEDBACK_RECIPIENTS = ['alexei.aksenov@gmail.com']
 MAX_ZIP_FILE_SIZE = 50  # MB
+
+SUMMERNOTE_CONFIG = {
+    'attachment_filesize_limit': 1024*500
+}
+EXCLUDE_FROM_MINIFYING = ('summernote/upload_attachment/',)

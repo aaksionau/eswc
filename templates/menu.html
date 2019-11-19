@@ -14,14 +14,14 @@
             <a class="navbar-item {% if view_name == 'club:main' %}is-active{% endif %}" href="{% url 'club:main' %}">
                 Home
             </a>
-            <a class="navbar-item">
-                About us
-            </a>
-            <a class="navbar-item">
+            <a class="navbar-item {% if view_name == 'galleries:list' %}is-active{% endif %}" href="{% url 'galleries:list' %}" title="Galleries">
                 Galleries
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item {% if view_name == 'blog:list' %}is-active{% endif %}" href="{% url 'blog:list' %}" title="Blog">
                 Blog
+            </a>
+            <a class="navbar-item {% if view_name == 'club:donate' %}is-active{% endif %}" href="{% url 'club:donate' %}" title="Donate">
+                Donate
             </a>
             <a class="navbar-item {% if view_name == 'club:contacts' %}is-active{% endif %}" href="{% url 'club:contacts' %}" title="Contacts">
                 Contacts
