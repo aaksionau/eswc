@@ -7,7 +7,7 @@ ALLOWED_HOSTS = ['eswc.paloni.webfactional.com',
                  'www.eastsidewrestling.org', 'eastsidewrestling.org']
 
 STATIC_URL = "/static/"
-STATIC_ROOT = '/home/paloni/webapps/eswc/eswc/static/'
+STATIC_ROOT = '/home/paloni/webapps/eswc/eswc/all_static_files/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
