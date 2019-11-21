@@ -19,13 +19,13 @@ Home
         <div class="content">
             <h1 class="is-size-3">Introduce yourself to the great sport of wrestling.</h1>
             <p class="subtitle is-5">Not sure if you'll like wrestling? </p>
-            <a class="button is-warning" href="{% url 'club:contacts' %}">
+            <a class="button is-warning" href="{% url 'pages:contacts' %}">
             Try it for a week for free!
             </a>
         </div>
     </div>
 </div>
-{% include "club/about.html" %}
+{% include "pages/about.html" %}
 {% include "club/schedule.html" with schedule_list=schedule_list %}
 {% include "club/tournaments.html" with tournaments=tournaments %}
 <section class="galleries">

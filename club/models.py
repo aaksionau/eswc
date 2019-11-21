@@ -55,24 +55,6 @@ class Schedule(models.Model):
         return f'{self.date}'
 
 
-class Feedback(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
-    phone = models.CharField(max_length=14,
-                             validators=[RegexValidator(regex='^\([0-9]{3}\)[0-9]{3}(-[0-9]{2}){2}|$')], help_text="Enter phone in the following format (111)111-1111")
-    text = models.TextField()
-
-    created = models.DateTimeField(auto_now_add=True)
-
-    objects = models.Manager()
-
-    def __str__(self):
-        return f'{self.name}'
-
-    class Meta:
-        ordering = ['-created']
-
-
 class GoogleSchedule:
     def __init__(self, url, scope):
         self.url = url

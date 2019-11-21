@@ -8,26 +8,17 @@
             <span aria-hidden="true"></span>
             </a>
         </div>
-{% with view_name=request.resolver_match.view_name %}
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-            <a class="navbar-item {% if view_name == 'club:main' %}is-active{% endif %}" href="{% url 'club:main' %}">
-                Home
-            </a>
-            <a class="navbar-item {% if view_name == 'galleries:list' %}is-active{% endif %}" href="{% url 'galleries:list' %}" title="Galleries">
-                Galleries
-            </a>
-            <a class="navbar-item {% if view_name == 'blog:list' %}is-active{% endif %}" href="{% url 'blog:list' %}" title="Blog">
-                Blog
-            </a>
-            <a class="navbar-item {% if view_name == 'club:donate' %}is-active{% endif %}" href="{% url 'club:donate' %}" title="Donate">
-                Donate
-            </a>
-            <a class="navbar-item {% if view_name == 'club:contacts' %}is-active{% endif %}" href="{% url 'club:contacts' %}" title="Contacts">
-                Contacts
-            </a>
+        {% with url_name=request.resolver_match.url_name %}
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                {% for page in menu_pages %}
+                    <a class="navbar-item{% if page.slug == url_name %} is-active{% endif %}" href="/{{page.slug}}/">
+                        {{page.title}}
+                    </a>            
+                {% endfor %}
+                </div>
             </div>
-{% endwith %}
+        {% endwith %}
         </div>
     </nav>
 </div>

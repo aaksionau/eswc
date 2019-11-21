@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'club',
     'galleries',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'club.context.add_settings',
+                'pages.context.add_menu_pages',
             ],
         },
     },

@@ -6,8 +6,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('club.urls')),
-    path('gallery/', include('galleries.urls')),
+    path('', include('pages.urls')),
+    path('club/', include('club.urls')),
+    path('galleries/', include('galleries.urls')),
     path('blog/', include('blog.urls')),
 ]
 
@@ -17,5 +18,5 @@ if settings.DEBUG:
         path('__debug__/', include(debug_toolbar.urls))
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'club.views.handler404'
-handler500 = 'club.views.handler500'
+handler404 = 'pages.views.handler404'
+handler500 = 'pages.views.handler500'

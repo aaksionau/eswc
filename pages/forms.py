@@ -1,7 +1,8 @@
 from django.forms import ModelForm, forms
 from django.core.mail import send_mail
-from django.template.loader import render_to_string
 from django.conf import settings
+from django.template.loader import render_to_string
+
 from .models import Feedback
 
 from datetime import datetime
@@ -20,7 +21,7 @@ class FeedbackForm(ModelForm):
 
         message_to_admin = f'You received message from {name}'
         msg_html = render_to_string(
-            'club/email.html', {'phone': phone, 'text': text, 'name': name, 'date': datetime.now().strftime('%x')})
+            'pages/email.html', {'phone': phone, 'text': text, 'name': name, 'date': datetime.now().strftime('%x')})
 
         recipients = settings.FEEDBACK_RECIPIENTS
         send_mail(
