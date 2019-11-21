@@ -7,17 +7,12 @@ Donate
 {{ block.super }}
     <div class="container page">
         <h1 class="title">Support East Saint Paul Youth Wrestling</h1>
-        <p>The East Side Wrestling Club is a recognized non-profit organization based in Saint Paul, MN.  Your donations are tax-deductible.  Thank you for your support!</p>
-
-        <span>*** If purchasing tickets for the dinner & silent auction, make sure you list the person's name you'd like the reservation under, how many tickets you are purchasing, and if you are supporting ESWC or Johnson High School Wrestling. You will get an email confirmation from mvinez@att.net***</span>
-        <p></p>
+        {{current_page.description|safe}}
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick"> 
             <input type="hidden" name="hosted_button_id" value="RR5BZH8GNDX7L"> 
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> 
             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
         </form>
-        <h2 class="subtitle">East Side Wrestling Club Budget</h2> 
-        Want to know where your donations are going? The attached spreadsheet shows total revenues & expenses for the club. Feel free to view our online records <a target="_blank" href="https://docs.google.com/spreadsheet/ccc?key=0Ai5zSYVmKy88dEV4QXFuWTR0WE93TDVQUnpCejV4SUE&amp;usp=sharing">HERE</a>.
     </div>
 {% endblock main %}

@@ -12,7 +12,7 @@
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-end">
                 {% for page in menu_pages %}
-                    <a class="navbar-item{% if page.slug == url_name %} is-active{% endif %}" href="/{{page.slug}}/">
+                    <a class="navbar-item{% if current_page and current_page.slug == page.slug %} is-active{% endif %}" href="/{{page.slug}}/">
                         {{page.title}}
                     </a>            
                 {% endfor %}
