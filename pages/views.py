@@ -15,7 +15,7 @@ app_name = 'pages'
 
 def index(request):
     context = {}
-    context['coaches'] = Coach.objects.all()
+    context['coaches'] = Coach.objects.all().order_by('order')
     context['schedule_list'] = Schedule.objects.filter(
         date__gte=datetime.now()).filter(type='n').order_by('date')[:10]
     context['tournaments'] = Schedule.objects.filter(

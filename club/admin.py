@@ -4,7 +4,7 @@ from .models import Coach, Schedule
 
 @admin.register(Coach)
 class AdminCoach(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone',)
+    list_display = ('name', 'title', 'email', 'phone', 'order')
 
 
 @admin.register(Schedule)

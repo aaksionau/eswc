@@ -14,7 +14,7 @@ class Coach(models.Model):
     phone = models.CharField(max_length=14,
                              validators=[RegexValidator(regex='^\([0-9]{3}\)[0-9]{3}(-[0-9]{2}){2}|$')], help_text="Enter phone in the following format (111)111-11-11")
     email = models.EmailField()
-
+    order = models.IntegerField(blank=True, null=True)
     avatar = models.FileField(upload_to='coaches/', blank=True, null=True)
 
     objects = models.Manager()
@@ -26,7 +26,7 @@ class Coach(models.Model):
         return f'Coach("{self.name}", "{self.phone}", "{self.email}")'
 
     class Meta:
-        ordering = ['name']
+        ordering = ['order']
 
 
 SCHEDULE_TYPES = (
