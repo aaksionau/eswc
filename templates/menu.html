@@ -4,7 +4,7 @@
         {% with url_name=request.resolver_match.url_name %}
             {% for page in menu_pages %}
                 <a class="nav__link {% if current_page and current_page.slug == page.slug %}nav__link--active{% endif %}" href="/{{page.slug}}/" title="{{page.title}}">
-                    {{page.title}}
+                    <span class="nav__link-text">{{page.title}}</span>
                 </a>            
             {% endfor %}
         {% endwith %}

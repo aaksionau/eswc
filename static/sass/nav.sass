@@ -1,6 +1,7 @@
 .nav
     display: none
     color: black
+    clear: both
 
     +element('link')
         margin: 0 10px
@@ -9,14 +10,24 @@
         font-size: 0.9em
         text-decoration: none
         color: black
+        padding: 16px 10px
+
         +modifier('active')
             color: white
             background-color: #e2847a
+            transform: skewX(-20deg)
+            & .nav__link-text
+                transform: skewX(20deg)
+                display: inline-block
+
         &:hover
             color: white
             background-color: #e2847a
+            transform: skewX(-20deg)
+            & .nav__link-text
+                transform: skewX(20deg)
+                display: inline-block
 
     +desktop()
         display: flex
         justify-content: flex-end
-        margin-top: 20px
