@@ -1,60 +1,26 @@
-{% extends "secondary_base.html" %}
+{% extends "base.html" %}
 {% block pagetitle %}
 Contacts
 {% endblock pagetitle %}
 {% block main %}
-{{ block.super }}
-    <div class="container page">
-        <div class="columns">
-            <div class="column">
-                <h2 class="title">Contacts</h2>
-                <h4 class="subtitle is-6">If you have any questions about our club, please leave them here:</h4>
+    {{ block.super }}
+    <div class="page container">
+                <h2>Contacts</h2>
+                <p>Johnson High School is located at 1349 Arcade St  St Paul, MN 55106. The wrestling room is located in the basement, across from the pool, and next to the boys' locker room.</p>
+                <p>If you have any questions about our club, please leave them here:</p>
                 {% include "_messages.html" with messages=messages %}
-                {% if form.errors %}
-                    <article class="message is-danger">
-                        <div class="message-header">
-                            <p>Please correct those errors:</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
-                        <ul class="list">
-                            {% for field, errors in form.errors.items %}
-                                <li>Field [{{ field }}]: {{ errors|join:", "}}</li>
-                            {% endfor %}
-                        </ul>
-                    </article>
-                {% endif %}
-                <form action="" method="post" >
+                <form action="" method="post" class="form" >
                     {% csrf_token %}
-                    <div class="field">
-                        <label class="label" for="id_name">Name:</label> 
-                        <div class="control is-small">
-                            <input class="input is-small" type="text" name="name" maxlength="50" required id="id_name">
+                    {% for field in form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }} 
+                            {{ field }} 
+                            {% if field.help_text %}
+                                <p class="form__helptext">{{ field.help_text|safe }}</p>
+                            {% endif %}
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label" for="id_email">Email:</label> 
-                        <div class="control is-small">
-                            <input class="input is-small" type="email" name="email" maxlength="254" required id="id_email">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label" for="id_phone">Phone:</label> 
-                        <div class="control is-small">
-                            <input class="input is-small" type="text" name="phone" maxlength="14" required id="id_phone"> 
-                        </div>
-                        <p class="help">Enter phone in the following format (111)111-1111</p>
-                    </div>
-                    <div class="field">
-                        <label class="label" for="id_text">Text:</label> 
-                        <div class="control is-small">
-                            <textarea class="textarea" name="text" cols="40" rows="10" required id="id_text">
-                            </textarea>
-                        </div>
-                    </div>
+                    {% endfor %}
                     <button class="button" type="submit">Send</form>
                 </form>
-            </div>
-            <div class="column"></div>
-        </div>
     </div>
 {% endblock main %}

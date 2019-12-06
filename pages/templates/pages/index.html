@@ -5,32 +5,20 @@
 Home 
 {% endblock pagetitle %}
 
-{% block styles %}
-    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
-{% endblock styles %}
-
+{% block header %}
+    <div class="header__content">
+        <h1 class="header__title">Introduce yourself to the great sport of wrestling.</h1>
+        <h4>Not sure if you'll like wrestling? </h4>
+        <a class="button button--header" href="{% url 'pages:contacts' %}">
+        Try it for a week for free!
+        </a>
+    </div>
+{% endblock header %}
 
 {% block main %}
-<div class="page__main-image">
-    <div class="container">
-        <div class="logo">
-            <img src="{% static 'img/logo.png' %}" title="East Side Wrestling Club" width="150" />
-        </div>
-        <div class="content">
-            <h1 class="is-size-3">Introduce yourself to the great sport of wrestling.</h1>
-            <p class="subtitle is-5">Not sure if you'll like wrestling? </p>
-            <a class="button is-warning" href="{% url 'pages:contacts' %}">
-            Try it for a week for free!
-            </a>
-        </div>
-    </div>
-</div>
-{% include "pages/about.html" with current_page=current_page %}
-{% include "club/schedule.html" with schedule_list=schedule_list %}
-{% include "club/tournaments.html" with tournaments=tournaments %}
-<section class="galleries">
-    {% include "galleries/galleries.html" with galleries=galleries %}
-</section>
-{% include "club/coaches.html" with coaches=coaches %}
-
+    {% include "pages/about.html" with current_page=current_page %}
+    {% include "club/schedule.html" with schedule_list=schedule_list %}
+    {% include "club/tournaments.html" with tournaments=tournaments %}
+    {% include "pages/galleries.html" with galleries=galleries %}
+    {% include "club/coaches.html" with coaches=coaches %}
 {% endblock main %}

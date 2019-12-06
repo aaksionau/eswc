@@ -1,22 +1,39 @@
-<div class="container">
-        <h1 class="title has-text-centered">Practice times, dates & price</h1>
-        <p class="subtitle is-6 has-text-centered">
-        <span class="has-text-weight-medium"> Ages 4 through 14</span>: Tuesdays & Thursdays from 6:15 - 7:30pm <br/>at the <a href="https://goo.gl/maps/UuYEYDcDaxwyGhsN6">Johnson High School</a> wrestling room.</p>
-        <p class="subtitle is-6 has-text-centered"><span class="has-text-weight-medium">There is a $30 cost </span> to participate in the winter season, and will include all practices, coaching at tournaments, and a club shirt. <br/>Fees can be discounted or waived for families with financial difficulties.</p>
-</div>
-<section class="schedule">
+<section class="section section__club">
     <div class="container">
-        <table class="table is-hoverable schedule_list">
-        <tbody>
+            <h1 class="section__title">Practice times, dates & price</h1>
+            <div class="section__content section__content--club">
+                <div class="club__column">
+                    <i class="fas fa-child fa-3x"></i>
+                    Ages 4 through 14
+                </div>
+                <div class="club__column">
+                    <i class="far fa-calendar-alt fa-3x"></i>
+                    Tuesdays & Thursdays <br/>from 6:15 - 7:30pm
+                </div>
+                <div class="club__column">
+                    <i class="fas fa-map-signs fa-3x"></i>
+                    <a href="https://goo.gl/maps/UuYEYDcDaxwyGhsN6">Johnson High School wrestling room.</a> 
+                </div>
+                <div class="club__column">
+                    <i class="fas fa-money-check-alt fa-3x"></i>
+                    There is a $30 cost <br/> to participate in the winter season
+                </div>
+            </div>
+            <div class="section__description section__description--bottom">
+                Price will cover all practices, coaching at tournaments, and a club shirt. Fees can be discounted or waived for families with financial difficulties.
+            </div>
+    </div>
+</section>
+<section class="section section__schedule">
+    <div class="container">
+        <div class="club__schedule">
         {% for item in schedule_list %}
-            <tr>
-                <td>{{item.date|date:'l, F t Y'}}</td>
-                <td><span class="tag is-white">No practice!</span></td>
-                <td>{{item.description}}</td>
-                <td></td>
-            </tr>
+            <div class="club__schedule-row">
+                <span>{{item.date|date:'l, F t Y'}}</span>
+                <span>No practice!</span>
+                <span>{{item.description}}</span>
+            </div>
         {% endfor %}
-        </tbody>
-        </table>
+        </div>
     </div>
 </section>

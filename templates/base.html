@@ -10,48 +10,38 @@
     {% endblock pagetitle %} - East Side Wrestling Club, St. Paul, Minnesota
   </title>
   {% include "seo.html" with page=page %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bulma.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 {% block styles %}
 {% endblock styles %}
 </head>
 <body>
-    {% include "menu.html" %}
-    {% block main %}
+    <header class="page__header">
+      {% include "menu.html" %}
+        <div class="header header--{{current_page}}">
+          <div class="container">
+            <div class="header__logo">
+              <img src="{% static 'img/logo.png' %}" title="East Side Wrestling Club" width="150" />
+            </div>
+            {% block header %}
+            {% endblock header %}
+          </div>
+      </div>
+    </header>
+    <main class="page__main">
+      {% block main %}
 
-    {% endblock main %}
-    <footer>
+      {% endblock main %}
+    </main>
+    <footer class='page__footer'>
         <div class="container">
-        Photos for design were taken by Ishan @seefromthesky and were found on Unsplash <br/>
-        Developed by @paloni<br/>
-        2012-{% now 'Y'%}
+            Photos for design were taken by Ishan @seefromthesky and were found on Unsplash <br/>
+            Developed by @paloni<br/>
+            2012-{% now 'Y'%}
         </div>
     </footer>
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            // Check for click events on the navbar burger icon
-            $(".navbar-burger").click(function() {
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                $(".navbar-burger").toggleClass("is-active");
-                $(".navbar-menu").toggleClass("is-active");
-            });
-            $(".delete").click(function() {
-                $('.message').hide();
-            });
-
-            $(".gallery" ).hover(function() {
-                $(this.children[0]).toggle( "slow", function() {
-                });
-            });
-            $(".gallery" ).click(function() {
-                window.location.href = this.children[0].children[0].children[0].href;
-            });
-        });
-    </script>
 
     {% block scripts %}
     {% endblock scripts %}

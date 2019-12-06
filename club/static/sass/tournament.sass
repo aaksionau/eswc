@@ -1,0 +1,18 @@
+.tournament
+    display: grid
+    grid-template-columns: 0.5fr 1fr
+    border-bottom: 1px solid green
+    padding: 5px 0
+
+    +element('image')
+        background-size: cover
+        width: 80px
+        height: 60px
+        background-position: center
+
+    +element('title')
+        margin: 0
+        padding: 5px 0 0
+
+    +element('title-link')
+        color: black

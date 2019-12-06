@@ -1,0 +1,24 @@
+.form
+    width: 50%
+
+    +element('text')
+        border-radius: 5px
+        border: 1px solid $primary-black
+        margin: 5px 0
+        padding: 5px 5px
+        width: 90%
+        &:focus
+            outline: none
+
+    +element('helptext')
+        margin: 0 0 5px 0
+        font-size: 0.8em
+
+    input[type=text], input[type=password], input[type=email],  textarea
+        border-radius: 5px
+        border: 1px solid $primary-black
+        margin: 5px 0
+        padding: 5px 5px
+        width: 90%
+        &:focus
+            outline: none

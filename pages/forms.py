@@ -1,4 +1,5 @@
-from django.forms import ModelForm, forms
+from django.forms import ModelForm
+from django import forms
 from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
@@ -12,6 +13,14 @@ class FeedbackForm(ModelForm):
     class Meta:
         model = Feedback
         exclude = ('created',)
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Your name'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Your email'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Phone number'}),
+            'subject': forms.TextInput(attrs={'placeholder': 'Topic of message'}),
+            'message': forms.Textarea(
+                attrs={'placeholder': 'Message'}),
+        }
 
     def send_email(self):
         phone = self.cleaned_data['phone']

@@ -1,23 +1,12 @@
 {% load static %}
-<div class="container menu">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            </a>
-        </div>
+<div class="container">
+    <nav class="nav">
         {% with url_name=request.resolver_match.url_name %}
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-end">
-                {% for page in menu_pages %}
-                    <a class="navbar-item{% if current_page and current_page.slug == page.slug %} is-active{% endif %}" href="/{{page.slug}}/">
-                        {{page.title}}
-                    </a>            
-                {% endfor %}
-                </div>
-            </div>
+            {% for page in menu_pages %}
+                <a class="nav__link {% if current_page and current_page.slug == page.slug %}nav__link--active{% endif %}" href="/{{page.slug}}/" title="{{page.title}}">
+                    {{page.title}}
+                </a>            
+            {% endfor %}
         {% endwith %}
         </div>
     </nav>

@@ -1,0 +1,41 @@
+.section
+    background-color: white
+    margin: 60px 0
+    +modifier('about')
+        position: relative
+
+    +element('schedule')
+        background-image: url(/static/img/schedule.jpg)
+        background-attachment: fixed
+        padding: 20px 0
+
+    +element('title')
+        text-align: center
+        font-size: 1.8em
+        +roboto-styles()
+
+    +element('content')
+        margin-top: 45px
+        +modifier('about')
+            display: grid
+            +desktop()
+                grid-template-columns: 30% 70%
+
+        +modifier('club')
+            display: flex
+            justify-content: center
+            flex-wrap: wrap
+
+        +modifier('tournaments')
+            +desktop()
+                width: 50%
+                margin: 60px auto
+
+    +element('description')
+        text-align: center
+        +modifier('bottom')
+            margin-top: 40px
+            font-style: italic
+
+    +element('content-image')
+        padding: 25px

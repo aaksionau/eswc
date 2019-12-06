@@ -1,17 +1,14 @@
-<section class="coaches">
+<section class="section section--tournaments">
     <div class="container">
-        <h1 class="title has-text-centered">Coming tournaments</h1>
-        <div class="tournaments_list">
+        <h1 class="section__title">Coming tournaments</h1>
+        <div class="section__content section__content--tournaments">
             {% for item in tournaments %}
-                <div class="card">
-                    <div class="card-image tournament" style="background-image: url(/media/{{item.cover_image}})">
+                <div class="tournament">
+                    <div class="tournament__image" style="background-image: url(/media/{{item.cover_image}})">
                     </div>
-                    <div class="card-content">
-                        <div class="media-content">
-                            <p class="title is-5">{{item.date|date:'l, F t Y'}}</p>
-                            <p class="subtitle is-6">{{item.description}}</p>
-                            <p class="subtitle is-6"><a target="_blank" class="button is-small is-primary" href="{{item.link}}">More</a></p>
-                        </div>
+                    <div class="tournament__content">
+                        <h3 class="tournament__title"><a class="tournament__title-link" target="_blank" href="{{item.link}}">{{item.date|date:'l, F t Y'}}</a></h3>
+                        <span>{{item.description}}</span>
                     </div>
                 </div>
             {% endfor %}

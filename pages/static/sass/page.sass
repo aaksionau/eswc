@@ -1,0 +1,21 @@
+.page
+    +element('header')
+
+    +element('footer')
+        background-color: #21373a
+        padding: 15px
+        color: #aebabb
+        font-size: 0.9em
+        line-height: 1.6em
+
+    +element('main')
+        margin: 40px 0
+
+    +element('title')
+        font-size: 2em
+        +roboto-styles()
+
+    +element('content')
+        +modifier('blog')
+            display: grid
+            grid-template-columns: 5fr 2fr

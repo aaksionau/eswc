@@ -1,12 +1,12 @@
-{% extends "secondary_base.html" %}
+{% extends "base.html" %}
 {% block pagetitle %}
 Donate
 {% endblock pagetitle %}
 
 {% block main %}
 {{ block.super }}
-    <div class="container page">
-        <h1 class="title">Support East Saint Paul Youth Wrestling</h1>
+    <div class="page container">
+        <h1>Support East Saint Paul Youth Wrestling</h1>
         {{current_page.description|safe}}
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick"> 

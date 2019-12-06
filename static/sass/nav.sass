@@ -1,0 +1,22 @@
+.nav
+    display: none
+    color: black
+
+    +element('link')
+        margin: 0 10px
+        padding: 5px 10px
+        text-transform: uppercase
+        font-size: 0.9em
+        text-decoration: none
+        color: black
+        +modifier('active')
+            color: white
+            background-color: #e2847a
+        &:hover
+            color: white
+            background-color: #e2847a
+
+    +desktop()
+        display: flex
+        justify-content: flex-end
+        margin-top: 20px

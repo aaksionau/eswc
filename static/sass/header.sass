@@ -1,0 +1,41 @@
+.header
+    background-image: url(/static/img/main_image.jpg)
+    width: 100%
+    min-height: 200px
+    margin-top: 20px
+
+    +modifier('Home')
+        height: 500px
+
+    +element('logo')
+        background-color: white
+        z-index: 100
+        padding: 0 7px
+        border-radius: 5px
+        display: inline-block
+        margin-top: -18px
+        position: absolute
+        width: 150px
+        +desktop()
+            margin-top: -45px
+
+    +element('content')
+        display: grid
+        justify-items: center
+        position: relative
+        top: 220px
+        background-color: #f8fbf8
+        border-radius: 10px
+        padding: 24px
+        opacity: 0.8
+        text-align: center
+        font-family: 'Courgette', cursive
+
+        +desktop()
+            margin: 0 120px
+
+    +element('logo-img')
+        width: 120px
+
+    +element('title')
+        margin: 10px

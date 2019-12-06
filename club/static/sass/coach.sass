@@ -1,0 +1,37 @@
+.coach
+    display: flex
+    flex-direction: column
+    border: 1px solid #ccc
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2)
+    border-bottom-left-radius: 7px
+    border-bottom-right-radius: 7px
+    width: 200px
+    margin: 8px
+
+    +element('list')
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+
+    +element('image')
+        background-repeat: no-repeat
+        background-position: center
+        height: 150px
+        width: 100%
+        background-size: cover
+
+    +element('info')
+        font-size: 0.7em
+
+    +element('name')
+        font-size: 1.2em
+        margin-bottom: 0
+        margin-top: 8px
+        +roboto-styles()
+
+    +element('title')
+        margin-top: 3px
+        font-size: 0.8em
+
+    +element('content')
+        padding: 0 15px

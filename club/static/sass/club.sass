@@ -1,0 +1,28 @@
+.club
+    +element('column')
+        display: grid
+        grid-template-rows: 70px 30px
+        text-align: center
+        width: 100%
+        margin: 20px
+        +desktop()
+            width: 150px
+
+    +element('schedule')
+        width: 50%
+        margin: auto
+        text-align: center
+
+    +element('schedule-row')
+        background-color: #8fbc8f
+        color: #fff
+        padding: 10px 20px
+        display: grid
+        grid-template-columns: 1fr .4fr 0.6fr
+        border-bottom: 1px solid #52ad88
+
+        & span:nth-child(2)
+            background-color: #fff
+            color: black
+            font-size: .9em
+            border-radius: 2px

@@ -1,14 +1,10 @@
 {% load static %}
-<section class="about">
+<section class="section section--about">
     <div class="container">
-        <h1 class="title has-text-centered">About us</h1>
-        <div class="columns">
-          <div class="column is-one-quarter">
-            <img src="{% static 'img/logo_secondary.jpg' %}" />
-        </div>
-        <div class="column">
-            <p>{{current_page.description|safe}}</p>
-        </div>
+        <h1 class="section__title">About us</h1>
+        <div class="section__content--about">
+            <img class="section__content-image" src="{% static 'img/logo_secondary.jpg' %}" />
+            <div>{{current_page.description|safe}}</div>
         </div>
     </div>
 </section>

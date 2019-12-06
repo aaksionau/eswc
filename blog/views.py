@@ -8,7 +8,7 @@ class BlogPostsListView(ListView):
     model = BlogPost
     paginate_by = 10
     context_object_name = 'blogposts'
-    queryset = BlogPost.published_objects.order_by('-created')
+    queryset = BlogPost.published_objects.order_by('created')
 
 
 class BlogPostDetailView(DetailView):
