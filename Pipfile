@@ -12,7 +12,7 @@ pylint = "*"
 pytest = "*"
 
 [packages]
-django = "==2.2.7"
+django = "==2.2.18"
 python-decouple = "==3.1"
 psycopg2 = "==2.8.4"
 django-summernote = "*"
